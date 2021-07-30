@@ -28,11 +28,47 @@ function addProduct() {
         success: function () {
             successHandler();
             clearInput();
+
         }
 
     });
     //chặn sự kiện mặc định của thẻ
     event.preventDefault();
+}
+
+function showFormCreate() {
+    let str = '<h3>Add Product</h3>' +
+        '<table>' +
+        '<tr>' +
+        '<td>Name:</td>' +
+        '<td><input type="text" id="name" placeholder="Name"></td>' +
+        '</tr>' +
+        '<tr>' +
+        '<td>Color:</td>' +
+        '<td><input type="text" id="color" placeholder="Color"></td>' +
+        '</tr>' +
+        '<tr>' +
+        '<td>Price:</td>' +
+        '<td><input type="text" id="price" placeholder="Price"></td>' +
+        '</tr>' +
+        '<tr>' +
+        '<td>Quantity:</td>' +
+        '<td><input type="text" id="quantity" placeholder="Quantity"></td>' +
+        '</tr>' +
+        '<tr>' +
+        '<td>Category:</td>' +
+        '<td><select name="category" id="category">' +
+        '<option value="1">Phone</option>' +
+        '<option value="2">Computer</option>' +
+        '<option value="3">Television</option>' +
+        '</select></td>' +
+        '</tr>' +
+        '<tr>' +
+        '<td></td>' +
+        '<td><input type="submit" value="Add" onClick="addProduct()"></td>' +
+        '</tr>' +
+        '</table>';
+    document.getElementById("add-product").innerHTML = str;
 }
 
 function clearInput() {
@@ -44,6 +80,8 @@ function clearInput() {
     document.getElementById("price1").value = "";
     document.getElementById("quantity1").value = "";
     document.getElementById("color1").value = "";
+    document.getElementById("add-product").value = "";
+    document.getElementById("form-edit").value = "";
 
 }
 
@@ -94,6 +132,39 @@ function deleteProduct(id) {
 }
 
 function showFormEdit(id) {
+    let str = '<h3>Edit Product</h3>' +
+        '<input type="hidden" id="id">' +
+        '<table>' +
+        '<tr>' +
+        '<td>Name:</td>' +
+        '<td><input type="text" id="name1" placeholder="Name"></td>' +
+        '</tr>' +
+        '<tr>' +
+        '<td>Color:</td>' +
+        '<td><input type="text" id="color1" placeholder="Color"></td>' +
+        '</tr>' +
+        '<tr>' +
+        '<td>Price:</td>' +
+        '<td><input type="text" id="price1" placeholder="Price"></td>' +
+        '</tr>' +
+        '<tr>' +
+        '<td>Quantity:</td>' +
+        '<td><input type="text" id="quantity1" placeholder="Quantity"></td>' +
+        '</tr>' +
+        '<tr>' +
+        '<td>Category:</td>' +
+        '<td><select name="category" id="category1">' +
+        '<option value="1">Phone</option>' +
+        '<option value="2">Computer</option>' +
+        '<option value="3">Television</option>' +
+        '</select></td>' +
+        '</tr>' +
+        '<tr>' +
+        '<td></td>' +
+        '<td><input type="submit" value="Update" onClick="updateProduct()"></td>' +
+        '</tr>' +
+        '</table>';
+    document.getElementById("form-edit").innerHTML = str;
     $.ajax({
         type: "GET",
         //tên API
@@ -153,3 +224,4 @@ function updateProduct() {
     //chặn sự kiện mặc định của thẻ
     event.preventDefault();
 }
+

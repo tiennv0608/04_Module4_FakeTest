@@ -13,7 +13,7 @@ public class Product {
     private int quantity;
     private String color;
 
-    @OneToOne
+    @ManyToOne
     private Category category;
 
     public Product() {

@@ -21,14 +21,6 @@ public class ProductController {
     @Autowired
     private IProductService productService;
 
-    @Autowired
-    private ICategoryService categoryService;
-
-//    @ModelAttribute("c")
-//    public ResponseEntity<Iterable<Category>> showAllCategory(){
-//        return new ResponseEntity<>(categoryService.findAll(), HttpStatus.OK);
-//    }
-
     @GetMapping
     public ResponseEntity<Iterable<Product>> findAll(){
         List<Product> products = (List<Product>) productService.findAll();
