@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>List Smartphone</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body onload="successHandler()">
+<h1>Product List</h1>
+<table id="products">
+</table>
+<hr>
+<form id="form-edit">
+    <h3>Edit Product</h3>
+    <input type="hidden" id="id">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" id="name1" placeholder="Name"></td>
+        </tr>
+        <tr>
+            <td>Color:</td>
+            <td><input type="text" id="color1" placeholder="Color"></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input type="text" id="price1" placeholder="Price"></td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td><input type="text" id="quantity1" placeholder="Quantity"></td>
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td><select name="category" id="category1">
+                <option value="1">Phone</option>
+                <option value="2">Computer</option>
+                <option value="3">Television</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Update" onclick="updateProduct()"></td>
+        </tr>
+    </table>
+</form>
+<hr>
+<form id="add-product">
+    <h3>Add Product</h3>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" id="name" placeholder="Name"></td>
+        </tr>
+        <tr>
+            <td>Color:</td>
+            <td><input type="text" id="color" placeholder="Color"></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input type="text" id="price" placeholder="Price"></td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td><input type="text" id="quantity" placeholder="Quantity"></td>
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td><select name="category" id="category">
+                <option value="1">Phone</option>
+                <option value="2">Computer</option>
+                <option value="3">Television</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Add" onclick="addProduct()"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
