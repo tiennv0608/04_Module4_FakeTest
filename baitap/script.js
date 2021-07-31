@@ -1,3 +1,36 @@
+function showFormCreate() {
+    let str = `<h3>Add Product</h3>
+        <table>
+        <tr>
+        <td>Name:</td>
+        <td><input type="text" id="name" placeholder="Name"></td>
+        </tr>
+        <tr>
+        <td>Color:</td>
+        <td><input type="text" id="color" placeholder="Color"></td>
+        </tr>
+        <tr>
+        <td>Price:</td>
+        <td><input type="text" id="price" placeholder="Price"></td> 
+        </tr>
+        <tr>
+        <td>Quantity:</td>
+        <td><input type="text" id="quantity" placeholder="Quantity"></td>
+        </tr>
+        <tr>
+        <td>Category:</td>
+        <td><select name="category" id="category">` +
+        getAllCategory() +
+        `</select></td>
+        </tr>
+        <tr>
+        <td></td>
+        <td><input type="submit" value="Add" onclick="addProduct()"></td>
+        </tr>
+        </table>`;
+    document.getElementById("form").innerHTML = str;
+}
+
 function addProduct() {
     //lay du lieu
     let name = document.getElementById("name").value;
@@ -36,40 +69,6 @@ function addProduct() {
     event.preventDefault();
 }
 
-function showFormCreate() {
-    let str = '<h3>Add Product</h3>' +
-        '<table>' +
-        '<tr>' +
-        '<td>Name:</td>' +
-        '<td><input type="text" id="name" placeholder="Name"></td>' +
-        '</tr>' +
-        '<tr>' +
-        '<td>Color:</td>' +
-        '<td><input type="text" id="color" placeholder="Color"></td>' +
-        '</tr>' +
-        '<tr>' +
-        '<td>Price:</td>' +
-        '<td><input type="text" id="price" placeholder="Price"></td>' +
-        '</tr>' +
-        '<tr>' +
-        '<td>Quantity:</td>' +
-        '<td><input type="text" id="quantity" placeholder="Quantity"></td>' +
-        '</tr>' +
-        '<tr>' +
-        '<td>Category:</td>' +
-        '<td><select name="category" id="category">' +
-        '<option value="1">Phone</option>' +
-        '<option value="2">Computer</option>' +
-        '<option value="3">Television</option>' +
-        '</select></td>' +
-        '</tr>' +
-        '<tr>' +
-        '<td></td>' +
-        '<td><input type="submit" value="Add" onClick="addProduct()"></td>' +
-        '</tr>' +
-        '</table>';
-    document.getElementById("form").innerHTML = str;
-}
 
 function clearInput() {
     document.getElementById("name").value = "";
@@ -83,6 +82,24 @@ function getProduct(product) {
     return `<tr><td>${product.name}</td><td>${product.quantity}</td><td>${product.price}</td><td>${product.color}</td><td>${product.category.name}</td>` +
         `<td><input type="button" onclick="showFormEdit('${product.id}')" value="Edit"/></td>` +
         `<td><input type="button" onclick="deleteProduct('${product.id}')" value="Delete"/></td></tr>`;
+}
+
+function getCategory(category) {
+    return `<option value="${category.id}">${category.name}</option>`;
+}
+
+function getAllCategory() {
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/categories",
+        success: function (categories) {
+            let str = "";
+            for (let i = 0; i < categories.length; i++) {
+                str += getCategory(categories[i]);
+            }
+            document.getElementById("category").innerHTML = str;
+        }
+    });
 }
 
 function successHandler() {
@@ -147,15 +164,13 @@ function showFormEdit(id) {
         '</tr>' +
         '<tr>' +
         '<td>Category:</td>' +
-        '<td><select name="category" id="category">' +
-        '<option value="1">Phone</option>' +
-        '<option value="2">Computer</option>' +
-        '<option value="3">Television</option>' +
+        '<td><select id="category">' +
+        getAllCategory() +
         '</select></td>' +
         '</tr>' +
         '<tr>' +
         '<td></td>' +
-        '<td><input type="submit" value="Update" onClick="updateProduct()"></td>' +
+        '<td><input type="button" value="Update" onclick="updateProduct()"></td>' +
         '</tr>' +
         '</table>';
     document.getElementById("form").innerHTML = str;
@@ -170,13 +185,13 @@ function showFormEdit(id) {
             let quantity = data.quantity;
             let price = data.price;
             let color = data.color;
-            let category = data.category.id;
+            let categoryId = data.category.id;
             document.getElementById("id").value = idData;
             document.getElementById("name").value = name;
             document.getElementById("quantity").value = quantity;
             document.getElementById("price").value = price;
             document.getElementById("color").value = color;
-            document.getElementById("category").value = category;
+            document.getElementById("category").value = categoryId;
         }
     });
 }

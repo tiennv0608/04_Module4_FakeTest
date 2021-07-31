@@ -10,8 +10,8 @@ com/codegym/service/IGeneralService.java
  com.codegym.service.IGeneralService
 com/codegym/model/Product.java
  com.codegym.model.Product
-com/codegym/controller/CategoryController.java
- com.codegym.controller.CategoryController
+com/codegym/service/product/ProductService.java
+ com.codegym.service.product.ProductService
 com/codegym/service/category/CategoryService.java
  com.codegym.service.category.CategoryService
 com/codegym/controller/ProductController.java
@@ -22,5 +22,5 @@ com/codegym/configuration/AppConfig.java
  com.codegym.configuration.AppConfig
 com/codegym/repository/ProductRepository.java
  com.codegym.repository.ProductRepository
-com/codegym/service/product/ProductService.java
- com.codegym.service.product.ProductService
+com/codegym/controller/CategoryController.java
+ com.codegym.controller.CategoryController
