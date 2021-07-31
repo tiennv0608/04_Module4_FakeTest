@@ -1,26 +1,26 @@
 com/codegym/model/Category.java
  com.codegym.model.Category
-com/codegym/config/AppInit.java
- com.codegym.config.AppInit
+com/codegym/configuration/AppInit.java
+ com.codegym.configuration.AppInit
 com/codegym/repository/CategoryRepository.java
  com.codegym.repository.CategoryRepository
 com/codegym/service/category/ICategoryService.java
  com.codegym.service.category.ICategoryService
-com/codegym/service/product/IProductService.java
- com.codegym.service.product.IProductService
-com/codegym/config/AppConfig.java
- com.codegym.config.AppConfig
-com/codegym/repository/ProductRepository.java
- com.codegym.repository.ProductRepository
-com/codegym/service/category/CategoryService.java
- com.codegym.service.category.CategoryService
 com/codegym/service/IGeneralService.java
  com.codegym.service.IGeneralService
-com/codegym/service/product/ProductService.java
- com.codegym.service.product.ProductService
 com/codegym/model/Product.java
  com.codegym.model.Product
-com/codegym/controller/ProductController.java
- com.codegym.controller.ProductController
 com/codegym/controller/CategoryController.java
  com.codegym.controller.CategoryController
+com/codegym/service/category/CategoryService.java
+ com.codegym.service.category.CategoryService
+com/codegym/controller/ProductController.java
+ com.codegym.controller.ProductController
+com/codegym/service/product/IProductService.java
+ com.codegym.service.product.IProductService
+com/codegym/configuration/AppConfig.java
+ com.codegym.configuration.AppConfig
+com/codegym/repository/ProductRepository.java
+ com.codegym.repository.ProductRepository
+com/codegym/service/product/ProductService.java
+ com.codegym.service.product.ProductService

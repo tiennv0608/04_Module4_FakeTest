@@ -5,6 +5,7 @@ import com.codegym.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,6 +16,11 @@ public class ProductService implements IProductService {
     @Override
     public Iterable<Product> findAllByName(String name) {
         return productRepository.findAllByName(name);
+    }
+
+    @Override
+    public List<Product> findProductByCategoryName(String name) {
+        return productRepository.findAllByCategoryName(name);
     }
 
     @Override
