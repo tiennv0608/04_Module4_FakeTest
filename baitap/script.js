@@ -61,14 +61,14 @@ function addProduct() {
         success: function () {
             successHandler();
             clearInput();
-
+            document.getElementById("form").innerHTML = "";
+            // location.reload()
         }
 
     });
     //chặn sự kiện mặc định của thẻ
     event.preventDefault();
 }
-
 
 function clearInput() {
     document.getElementById("name").value = "";
@@ -227,6 +227,7 @@ function updateProduct() {
         success: function () {
             successHandler();
             clearInput();
+            document.getElementById("form").innerHTML = "";
         }
 
     });
